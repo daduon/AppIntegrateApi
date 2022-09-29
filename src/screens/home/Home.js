@@ -1,5 +1,8 @@
-import React from "react";
-import { StyleSheet, View, Text, ImageBackground, Image,Button,TouchableOpacity,Alert } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage, TextInput } from "react-native";
+import { Drawer } from 'react-native-paper';
+
+const STORAGE_KEY = '@save_name'
 
 const Home = ({ navigation }) => {
 
@@ -27,12 +30,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginTop: '50%',
     },
-    background:{
-        backgroundColor:"#00ced1",
-        width:'100%',   
-        height:'100%',
+    background: {
+        backgroundColor: "#00ced1",
+        width: '100%',
+        height: '100%',
     },
-    signin:{
+    signin: {
         backgroundColor: '#3A59FF',
         color: 'white',
         width: "75%",
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: '11%',
         padding: "2%",
-        fontSize:  27,
+        fontSize: 27,
         marginTop: '50%'
     }
 });

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, FlatList, Image, TextInput, ActivityIndicator, Alert } from "react-native";
 
-const Product = ({ navigation }) => {
+const Smartphone = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
     const [search, setSearch] = useState('');
     const [filterData, setFilterData] = useState([]);
 
@@ -23,7 +22,6 @@ const Product = ({ navigation }) => {
         } catch (error) {
             console.error(error);
             setLoading(false);
-            setError(err);
         } finally {
             setLoading(false);
         }
@@ -57,16 +55,6 @@ const Product = ({ navigation }) => {
             </View>
         );
     }
-    if (error) {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize: 18 }}>
-                    Error fetching data... Check your network connection!
-                </Text>
-            </View>
-        );
-    }
-
 
 
     return (
@@ -90,7 +78,7 @@ const Product = ({ navigation }) => {
                         <View style={styles.metaInfo}>
                             <Text style={styles.title}>{item.title}</Text>
                             <Text style={styles.price}>{item.price} $</Text>
-                            <Text>Tel: <Text style={styles.contact}>{item.contact} </Text></Text>
+                            <Text style={styles.title}>Tel: <Text style={styles.contact}>{item.contact} </Text></Text>
                         </View>
                     </View>
                 )}
@@ -129,6 +117,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
+        color:'#000'
     },
     price: {
         color: "red",
@@ -146,8 +135,10 @@ const styles = StyleSheet.create({
         margin: 5,
         borderColor: '#ccc',
         backgroundColor: '#FFFFFF',
-        borderRadius:10
+        borderRadius:10,
+        marginTop:50,
+        color:'#000'
     },
 });
 
-export default Product;
+export default Smartphone;
