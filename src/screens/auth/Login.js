@@ -10,7 +10,7 @@ const Login = ({navigation}) => {
 
     function signIn() {
         const validate = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (email.match(validate) && password.match(confirm)) {
+        if (email.match(validate) && password.match(confirm) && email == "da.duon@gmail.com" && password == "12345") {
             navigation.navigate('Product');
         } else {
             setValidate('email or password incorrect!');
